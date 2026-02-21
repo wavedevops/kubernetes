@@ -41,7 +41,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
   name: nginx-deployment
 spec:
   ports:
