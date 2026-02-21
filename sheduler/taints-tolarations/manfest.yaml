@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -36,6 +36,6 @@ spec:
             nodeSelectorTerms:
             - matchExpressions:
               - key: "node"
-                operator: "Equal"
+                operator: "In"
                 values:
                 - "n1"
