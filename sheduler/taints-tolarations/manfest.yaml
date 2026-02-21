@@ -22,7 +22,7 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
       tolerations:
         - key: "node"
           operator: "Equal"
