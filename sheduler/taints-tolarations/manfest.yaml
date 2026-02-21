@@ -22,7 +22,7 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80   # ✅ nginx listens on 80
       tolerations:
         - key: "node"
           operator: "Equal"
@@ -41,12 +41,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-deployment
+  name: nginx-service
+  namespace: prasad     # ✅ same namespace
 spec:
-  ports:
-  - port: 8080
-    protocol: TCP
-    targetPort: 8080
+  type: NodePort
   selector:
     app: web
-  type: NodePort
+  ports:
+    - port: 80          # Service port
+      targetPort: 80    # ✅ Send to container port 80
+      protocol: TCP
